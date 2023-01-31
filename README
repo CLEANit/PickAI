@@ -1,0 +1,58 @@
+ISING DATA
+Authors: Evan Thomas, Kyle Mills, Isaac Tamblyn
+Date: 16 July 2020
+
+
+The comprised datasets are two-dimensional ising spin systems.
+
+
+				Datasets
+
+Ising4e.hdf5 and Ising5e.hdf5 are exhaustive datasets containing all possible 
+configurations. They were produced by the "ising_exhaustive_generation.py" code. 
+For larger systems, producing exhaustive datasets becomes computationally expensive. 
+Therefore, the larger datasets, Ising6.hdf5 and Ising7.hdf5, are generated using 
+generative neural networks. 
+
+
+		Training configuration sampler by genetic algorithm
+
+This network is trained in "ising_sampler_train.py", by a genetic algorithm. Candidate
+networks are given random NxN data as their input and output NxN configurations, 
+which when filtered are acceptable ising spin configurations. The genetic algorithm 
+scores candidate networks based on the energy distribution of their output 
+configurations. The scoring metric is a geometric-average of several desirable 
+distribution properties. 
+
+
+		Producing Uniform datasets with the configuration sampler
+
+Once efficient configuration sampler networks have been trained, they are loaded by
+"load_make_fungible.py", and used to generate a uniform dataset. To minimize 
+peculiarities of any particular configuration-sampling network, the final ten 
+networks are used in conjunction to generate the final dataset. The loaded networks 
+are given the random input, then their outputs are filtered and their energies
+calculated. As an additional attempt to minimize any random biased produced
+by the configuration samplers, the outputs generated are copied and flipped in all
+possible combinations of dimensions. 
+
+The generated outputs have energies fall into a discrete number of energy-classes. 
+The code then works to generate D/n examples of each energy-class; where D is the 
+desired size of the dataset, and n is the number of energy classes. Therefore, the 
+total size of the dataset will be roughly D, but not exactly if D does not divide 
+evenly into n. If an additional energy class is encountered during the generation 
+process, the code adapts the goal amount for each energy class to be D/(n+1). As a 
+result, the final total size of the dataset may be larger than D. However, the 
+dataset is guaranteed to be perfectly uniform. 
+
+
+Licensing information
+
+The hdf5 data files (*.hdf5) included in this work by Evan Thomas, et al, is licensed 
+under CC BY-NC-SA 4.0. This license is contained in the included file 
+"LICENSES/LICENSE_FOR_HDF5_DATA"
+
+The Python 3 code files (*.py) included in this work by Evan Thomas, et al,
+is licensed under the GNU Public License Version 3.0 or later. The license is
+is contained in the file "LICENSES/LICENSE_FOR_PYTHON_CODE"
+
