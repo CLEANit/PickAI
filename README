@@ -8,19 +8,12 @@ The comprised datasets are two-dimensional ising spin systems.
 
 				Datasets
 
-Exhaustive datasets containing all possible configurations are produced by the "ising_exhaustive_generation.py" 
-code. For larger systems, producing exhaustive datasets becomes computationally expensive. 
-Therefore, larger datasets are generated using generative neural networks. 
+Exhaustive datasets containing all possible configurations are produced by the "ising_exhaustive_generation.py" code. For larger systems, producing exhaustive datasets becomes computationally expensive. Therefore, larger datasets are generated using generative neural networks. 
 
 
 		Training configuration sampler by genetic algorithm
 
-This network is trained in "ising_sampler_train.py", by a genetic algorithm. Candidate
-networks are given random NxN data as their input and output NxN configurations, 
-which when filtered are acceptable ising spin configurations. The genetic algorithm 
-scores candidate networks based on the energy distribution of their output 
-configurations. The scoring metric is a geometric-average of several desirable 
-distribution properties. 
+This network is trained in "ising_sampler_train.py", by a genetic algorithm. Candidate networks are given random NxN data as their input and output NxN configurations, which when filtered are acceptable ising spin configurations. The genetic algorithm scores candidate networks based on the energy distribution of their output configurations. The scoring metric is a geometric-average of several desirable distribution properties. 
 
 
 		Producing Uniform datasets with the configuration sampler
