@@ -8,11 +8,9 @@ The comprised datasets are two-dimensional ising spin systems.
 
 				Datasets
 
-Ising4e.hdf5 and Ising5e.hdf5 are exhaustive datasets containing all possible 
-configurations. They were produced by the "ising_exhaustive_generation.py" code. 
-For larger systems, producing exhaustive datasets becomes computationally expensive. 
-Therefore, the larger datasets, Ising6.hdf5 and Ising7.hdf5, are generated using 
-generative neural networks. 
+Exhaustive datasets containing all possible configurations are produced by the "ising_exhaustive_generation.py" 
+code. For larger systems, producing exhaustive datasets becomes computationally expensive. 
+Therefore, larger datasets are generated using generative neural networks. 
 
 
 		Training configuration sampler by genetic algorithm
@@ -52,7 +50,7 @@ The hdf5 data files (*.hdf5) included in this work by Evan Thomas, et al, is lic
 under CC BY-NC-SA 4.0. This license is contained in the included file 
 "LICENSES/LICENSE_FOR_HDF5_DATA"
 
-The Python 3 code files (*.py) included in this work by Evan Thomas, et al,
+The Python code files (*.py) included in this work by Evan Thomas, et al,
 is licensed under the GNU Public License Version 3.0 or later. The license is
 is contained in the file "LICENSES/LICENSE_FOR_PYTHON_CODE"
 
